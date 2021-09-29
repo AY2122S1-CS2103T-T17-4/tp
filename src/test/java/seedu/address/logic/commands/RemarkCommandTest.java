@@ -35,4 +35,5 @@ class RemarkCommandTest {
 
         assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);
     }
+
 }
