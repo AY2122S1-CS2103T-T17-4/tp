@@ -87,6 +87,28 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 
+
+### Adding Revenue: `revenue` [coming soon]
+
+Adds revenue earned from an existing person in the address book.
+
+Format: `revenue AMOUNT`
+
+* Adds to the revenue earned from an existing person in the addres book by the given `AMOUNT`. The amount refers to the
+amount of revenue that the user earn from an existing person in S$. The amount can be **any float number of up to 2
+decimal places 100, 250.11, 50000.90, ...**
+* Existing value will be updated with the current value added to the `AMOUNT` given.
+* Default value for revenue of a person will be 0 when he/she is added to the address book.
+* Revenue of an existing person in the address book should never be **negative**.
+
+Examples:
+
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` followed by `revenue 100.95` will
+update the revenue of John Doe to be `100.95`.
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal` followed by `revenue 350`
+and followed by `revenue -100.11` will update the revenue of Betsy Crowe to be `249.89`.
+
+
 ### Listing all persons : `list`
 
 Shows a list of all persons in the address book.
