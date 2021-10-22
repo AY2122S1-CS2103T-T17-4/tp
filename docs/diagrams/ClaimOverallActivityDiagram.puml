@@ -1,0 +1,17 @@
+@startuml
+start
+:User enters input;
+:"claim" keyword identified;
+:Parse arguments of command;
+:Execute command;
+switch()
+case (User wants to delete claim)
+    :Delete claim from model;
+case (User wants to edit claim)
+    :Edit claim with new information;
+case (User wants to add claim)
+    :Add new claim to model ;
+endswitch
+:Save updated model to storage;
+stop
+@enduml

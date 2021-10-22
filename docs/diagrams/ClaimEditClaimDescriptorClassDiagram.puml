@@ -1,0 +1,15 @@
+@startuml
+class Claim
+class EditClaimDescriptor
+class Title
+class Status
+class Description
+
+Claim --> "1" Title
+Claim ---> "1" Description
+Claim ---> "1" Status
+
+EditClaimDescriptor --> "1" Title
+EditClaimDescriptor ---> "0..1" Description
+EditClaimDescriptor ---> "0..1" Status
+@enduml
