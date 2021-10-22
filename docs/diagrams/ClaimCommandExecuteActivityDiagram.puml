@@ -1,0 +1,21 @@
+@startuml
+!include style.puml
+start
+:Get client at index;
+:Get client's set of claims;
+:Find claim with the same title;
+
+if () then ([No such claim])
+    :Create new claim \nfrom EditClaimDescriptor;
+    :Add claim to client;
+else ([else])
+    if () then ([EditClaimDescriptor empty])
+        :Remove claim \nfrom client;
+    else ([else])
+        :Create new claim \nwith updated fields;
+        :Replace claim with \nupdated claim;
+    endif
+endif
+:Return CommandResult;
+stop
+@enduml

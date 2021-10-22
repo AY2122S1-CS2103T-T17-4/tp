@@ -1,20 +1,14 @@
 @startuml
 !include style.puml
 
-
-Participant ":LogicManager" as logicManager UI_COLOR
 Participant ":AddressBookParser" as addressBookParser LOGIC_COLOR_T2
 Participant ":ClaimCommandParser" as claimCommandParser LOGIC_COLOR
 Participant "<<class>>\nParserUtil" as util MODEL_COLOR
 Participant ":EditClaimDescriptor" as descriptor STORAGE_COLOR
 Participant ":ClaimCommand" as command #purple
 
-activate logicManager UI_COLOR
-
-logicManager -[UI_COLOR]>addressBookParser :"claim 1 n/Car Accident \nd/At NTU s/pending"
-activate addressBookParser LOGIC_COLOR_T2
-
 addressBookParser -[LOGIC_COLOR_T2]> claimCommandParser :"1 n/Car Accident \nd/At NTU s/pending"
+activate addressBookParser LOGIC_COLOR_T2
 activate claimCommandParser LOGIC_COLOR
 
 claimCommandParser -[LOGIC_COLOR]> util :parseArguments;
@@ -31,17 +25,14 @@ descriptor -[STORAGE_COLOR]-> claimCommandParser :EditClaimDescriptor
 deactivate descriptor
 
 create command
-claimCommandParser -[LOGIC_COLOR]> command :ClaimCommand(EditClaimDescriptor)
+claimCommandParser -[LOGIC_COLOR]> command :ClaimCommand(Index, EditClaimDescriptor)
 activate command #purple
 
-command -[#purple]> claimCommandParser :ClaimCommand
+command -[#purple]-> claimCommandParser :ClaimCommand
 deactivate command
 
-claimCommandParser -> addressBookParser
+claimCommandParser -[LOGIC_COLOR]-> addressBookParser :ClaimCommand
 deactivate claimCommandParser
 
-addressBookParser -> logicManager
 deactivate addressBookParser
-
-deactivate logicManager
 @enduml
