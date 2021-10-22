@@ -249,7 +249,7 @@ Each step will be described in the sections below.
 Parsing of the user input is primarily handled by the `ClaimCommandParser` which calls other helper classes to 
 parse the text into the data classes `Title`, `Description` and `Status`
 
-<img src="images/ClaimCommandParserSequenceDiagram.png" width="550" />
+<img src="images/ClaimCommandParserSequenceDiagram.png" width="800" />
 
 `ClaimCommandParser` uses the parsed data classes to create an `EditClaimDescriptor`. It does not create a `Claim` at 
 this stage because the user input could be giving an incomplete description of a `Claim` with missing fields. These 
