@@ -498,6 +498,7 @@ and a `brand` representing the insurance policy's brand, represented as a `Strin
 * **Alternative 2 (chosen)**: Integrate `Insurance` with existing `add` and `edit` commands 
   * Pros: Easy for user to remember as a lightweight property, similar to existing `Tag` 
   * Cons: Harder to scale in the future if more properties are added to `Insurance`
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
